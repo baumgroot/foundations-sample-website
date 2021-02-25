@@ -1,5 +1,4 @@
 from flask import Flask
-from flask import render_template
 app = Flask(__name__)
 
 
@@ -8,9 +7,12 @@ def hello_world():
     return '<h1>Hello Döni!!!</h1>'
 
 
-@app.route('/<name>')
+@app.route('/index')
 def index(name=None):
-    return render_template('index.html', name=name)
+    file = open("./sample_website/index.html", "r")
+    text = file.read()
+    print(text)
+    return text
 
 
 if __name__ == "__main__":
