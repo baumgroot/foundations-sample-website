@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import render_template
 from color_check.controllers.get_color_code import get_color_code
+from flask import request
 app = Flask(__name__)
 
 
@@ -28,7 +29,7 @@ def show_color():
 
         return render_template('color.html', page_title="Show Color", color_name=color_name, color_hex_code=color_hex_code)
     else:
-        return redirect(url_for('/'))
+        return render_template('index.html', page_title="Show Color")
 
 
 if __name__ == "__main__":
