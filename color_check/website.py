@@ -23,11 +23,10 @@ def show_color():
     # - create a log.txt file which records (logs) the user requests.
 
     if request.method == 'POST':
-        user_submitted_string = request.form["color"].lower()
-        color_name = user_submitted_string.capitalize()
-        color_hex_code = get_color_code(user_submitted_string)
+        user_submitted = request.form["color"].lower()
+        color_hex_code = get_color_code(user_submitted)
 
-        return render_template('color.html', page_title="Show Color", color_name=color_name, color_hex_code=color_hex_code)
+        return render_template('color.html', page_title="Show Color", color_hex_code=color_hex_code)
     else:
         return render_template('index.html', page_title="Show Color")
 
